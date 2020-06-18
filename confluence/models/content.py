@@ -90,7 +90,7 @@ class Content:
         if 'version' in json:
             self.version = Version(json['version'])
 
-        if self.type == ContentType.ATTACHMENT:
+        if self.type == ContentType.ATTACHMENT or '_links' in json:
             self.links = json['_links']  # type: Dict[str, Any]
 
     def __str__(self):
